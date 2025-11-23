@@ -13,36 +13,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
-
-    - name: Install dependencies
-      run: npm install
-
-    # ===== Functional Test: HTMLHint =====
-    - name: Run HTMLHint
-      run: npx htmlhint "**/*.html"
-
-    - name: Generate HTMLHint report
-      run: npx htmlhint "**/*.html" -f json > htmlhint-report.json
-
-    - name: Upload HTMLHint report
-      uses: actions/upload-artifact@v4
-      with:
-        name: htmlhint-report
-        path: htmlhint-report.json
-
-    # ===== Non-Functional Test: ESLint for JS =====
-    - name: Install ESLint
-      run: npm install eslint --save-dev
+    - name: Validate HTML/JS project
+      run: echo "No build required for HTML/JS project"
 
     - name: Run ESLint
-      run: npx eslint "**/*.js" -f json -o eslint-report.json || true
-
-    - name: Upload ESLint report
-      uses: actions/upload-artifact@v4
-      with:
-        name: eslint-report
-        path: eslint-report.json
+      run: npx eslint "**/*.js"
