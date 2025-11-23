@@ -1,14 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const db = require('./db');
+const db = require('./db'); // قاعدة بيانات SQLite
 
 const app = express();
 const PORT = 3000;
 
+// إعدادات Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static('public')); // خدمة ملفات static
+
+// Route للـ root
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
 
 // جلب جميع الأحداث
 app.get('/api/events', (req, res) => {
