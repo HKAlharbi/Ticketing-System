@@ -7,9 +7,23 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "sqlite3": "^5.1.6",
     "body-parser": "^1.20.2",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HKAlharbi/Ticketing-System.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HKAlharbi/Ticketing-System/issues"
+  },
+  "homepage": "https://github.com/HKAlharbi/Ticketing-System#readme",
+  "devDependencies": {
+    "htmlhint": "^1.7.1"
   }
 }

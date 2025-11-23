@@ -13,5 +13,22 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Validate HTML/JS project
-      run: echo "No build required for HTML/JS project"
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run HTMLHint
+      run: npx htmlhint "**/*.html"
+
+    - name: Generate HTMLHint report
+      run: npx htmlhint "**/*.html" -f json > htmlhint-report.json
+
+    - name: Upload HTMLHint report
+      uses: actions/upload-artifact@v3
+      with:
+        name: htmlhint-report
+        path: htmlhint-report.json
