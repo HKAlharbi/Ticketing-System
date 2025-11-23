@@ -21,6 +21,7 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    # ===== Functional Test: HTMLHint =====
     - name: Run HTMLHint
       run: npx htmlhint "**/*.html"
 
@@ -32,3 +33,10 @@ jobs:
       with:
         name: htmlhint-report
         path: htmlhint-report.json
+
+    # ===== Non-Functional Test: ESLint for JS =====
+    - name: Install ESLint
+      run: npm install eslint --save-dev
+
+    - name: Run ESLint
+      run: npx eslint "**/*.js" -f json -o eslint-report.jso***
